@@ -1,0 +1,5 @@
+MysnInterfaceBundle_homepage:
+    pattern:  /
+    defaults: { _controller: MysnInterfaceBundle:Portail:index }
+    requirements:
+        _method:  GET
