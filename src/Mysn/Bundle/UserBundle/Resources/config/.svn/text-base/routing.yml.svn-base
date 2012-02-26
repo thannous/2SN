@@ -1,0 +1,17 @@
+# src/Mysn/Bundle/UserBundle/Resources/config/routing.yml
+
+mysnUser_index:
+    pattern:  /friends
+    defaults: { _controller: MysnUserBundle:User:index }
+
+mysnUser_user:
+    pattern:  /{login}
+    defaults: { _controller: MysnUserBundle:User:user }
+    requirements:
+        login:  "[a-zA-Z0-9 -]+"
+
+mysnUser_album:
+    pattern:  /{login}/albums
+    defaults: { _controller: MysnUserBundle:User:albums }
+    requirements:
+        login:  "[a-zA-Z0-9 -]+"
