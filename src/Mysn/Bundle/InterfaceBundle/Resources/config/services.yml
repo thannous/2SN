@@ -1,0 +1,7 @@
+parameters:
+#    mysn_interface.example.class: Mysn\Bundle\InterfaceBundle\Example
+
+services:
+#    mysn_interface.example:
+#        class: %mysn_interface.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
