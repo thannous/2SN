@@ -1,0 +1,16 @@
+{# src/Mysn/UserBundle/Resources/views/User/voir.html.twig #}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bienvenue sur ma première page avec le Site du Zéro !</title>
+    </head>
+    <body>
+        <h1>Lecture d'un article</h1>
+
+        <p>
+            Ici nous pourrons voir la page d notre ami ayant comme login : <b>{{ login }}</b><br />
+            Mais pour l'instant nous ne savons pas encore le faire, cela viendra !
+        </p>
+    </body>
+</html>
