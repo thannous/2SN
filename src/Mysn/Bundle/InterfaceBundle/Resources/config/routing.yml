@@ -3,3 +3,23 @@ MysnInterfaceBundle_homepage:
     defaults: { _controller: MysnInterfaceBundle:Portail:index }
     requirements:
         _method:  GET
+
+MysnInterfaceBundle_ajax_more_actu:
+    pattern:  /more
+    defaults: { _controller: MysnInterfaceBundle:Portail:more }
+    requirements:
+        _method:  POST
+
+MysnInterfaceBundle_articles:
+    resource: "routing/articles.yml"
+    prefix: /articles
+
+MysnInterfacerBundle_users:
+    resource: "routing/users.yml"
+    prefix: /users
+
+MysnInterfaceBundle_article_add:
+    pattern: /create
+    defaults: { _controller: MysnInterfaceBundle:Portail:create }
+    requirements:
+        _method:  POST

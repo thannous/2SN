@@ -1,0 +1,30 @@
+articles:
+    pattern:  /
+    defaults: { _controller: "MysnInterfaceBundle:ARTICLES:index" }
+
+articles_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MysnInterfaceBundle:ARTICLES:show" }
+
+articles_new:
+    pattern:  /new
+    defaults: { _controller: "MysnInterfaceBundle:ARTICLES:new" }
+
+articles_create:
+    pattern:  /create
+    defaults: { _controller: "MysnInterfaceBundle:ARTICLES:create" }
+    requirements: { _method: post }
+
+articles_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MysnInterfaceBundle:ARTICLES:edit" }
+
+articles_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MysnInterfaceBundle:ARTICLES:update" }
+    requirements: { _method: post }
+
+articles_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MysnInterfaceBundle:ARTICLES:delete" }
+    requirements: { _method: post }

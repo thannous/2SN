@@ -1,0 +1,45 @@
+<h1>ARTICLES</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Id_user</th>
+            <td>{{ entity.IDUSER }}</td>
+        </tr>
+        <tr>
+            <th>Id_group</th>
+            <td>{{ entity.IDGROUP }}</td>
+        </tr>
+        <tr>
+            <th>Datepub</th>
+            <td>{{ entity.DATEPUB|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Content</th>
+            <td>{{ entity.CONTENT }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('articles') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('articles_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('articles_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

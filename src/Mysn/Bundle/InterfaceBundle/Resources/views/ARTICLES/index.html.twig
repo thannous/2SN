@@ -1,0 +1,44 @@
+{% extends 'MysnInterfaceBundle::index.html.twig' %}
+<h1>ARTICLES list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Id_user</th>
+            <th>Id_group</th>
+            <th>Datepub</th>
+            <th>Content</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('articles_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.IDUSER }}</td>
+            <td>{{ entity.IDGROUP }}</td>
+            <td>{% if entity.DATEPUB %}{{ entity.DATEPUB|date('Y-m-d H:i:s') }}{% endif%}</td>
+            <td>{{ entity.CONTENT }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('articles_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('articles_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('articles_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

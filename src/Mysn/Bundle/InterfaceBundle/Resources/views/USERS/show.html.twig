@@ -1,0 +1,85 @@
+<h1>USERS</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ entity.EMAIL }}</td>
+        </tr>
+        <tr>
+            <th>Pass</th>
+            <td>{{ entity.PASS }}</td>
+        </tr>
+        <tr>
+            <th>Firstname</th>
+            <td>{{ entity.FIRSTNAME }}</td>
+        </tr>
+        <tr>
+            <th>Lastname</th>
+            <td>{{ entity.LASTNAME }}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{ entity.ADDRESS }}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ entity.CITY }}</td>
+        </tr>
+        <tr>
+            <th>Cp</th>
+            <td>{{ entity.CP }}</td>
+        </tr>
+        <tr>
+            <th>Country</th>
+            <td>{{ entity.COUNTRY }}</td>
+        </tr>
+        <tr>
+            <th>Avatar</th>
+            <td>{{ entity.AVATAR }}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td>{{ entity.BIRTHDAY|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ entity.STATUS }}</td>
+        </tr>
+        <tr>
+            <th>Last_login</th>
+            <td>{{ entity.LASTLOGIN|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Create_date</th>
+            <td>{{ entity.CREATEDATE|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Is_enable</th>
+            <td>{{ entity.ISENABLE }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('users') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('users_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('users_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

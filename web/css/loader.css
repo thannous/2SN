@@ -1,0 +1,107 @@
+/*
+    Document   : loader
+    Created on : 29 févr. 2012, 22:40:04
+    Author     : thovandeth
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root {
+    display: block;
+}
+
+.loader span{
+    background: #4567A7;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 10px auto;
+    -webkit-animation: loader 1s infinite;
+    -moz-animation: loader 1s infinite;
+    -ms-animation: loader 1s infinite;
+    animation: loader 1s infinite;
+}
+
+.loader span:nth-of-type(2){
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    -ms-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.loader span:nth-of-type(3){
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    -ms-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+
+@keyframes "loader" {
+ 0% {
+    width: 20px;
+   	height: 10px;
+   	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+   	filter: alpha(opacity=80);
+   	opacity: 0.8;
+ }
+ 100% {
+    width: 20px;
+   	height: 20px;
+   	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+   	filter: alpha(opacity=20);
+   	opacity: 0.2;
+ }
+
+}
+
+@-moz-keyframes loader {
+ 0% {
+   width: 20px;
+   height: 10px;
+   filter: alpha(opacity=80);
+   opacity: 0.8;
+ }
+ 100% {
+   width: 20px;
+   height: 20px;
+   filter: alpha(opacity=20);
+   opacity: 0.2;
+ }
+
+}
+
+@-webkit-keyframes "loader" {
+ 0% {
+   width: 20px;
+   height: 10px;
+   filter: alpha(opacity=80);
+   opacity: 0.8;
+ }
+ 100% {
+   width: 20px;
+   height: 20px;
+   filter: alpha(opacity=20);
+   opacity: 0.2;
+ }
+
+}
+
+@-ms-keyframes "loader" {
+ 0% {
+   width: 20px;
+   height: 10px;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+   filter: alpha(opacity=80);
+   opacity: 0.8;
+ }
+ 100% {
+   width: 20px;
+   height: 20px;
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+   filter: alpha(opacity=20);
+   opacity: 0.2;
+ }
+
+}

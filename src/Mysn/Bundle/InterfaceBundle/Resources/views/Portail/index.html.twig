@@ -1,4 +1,81 @@
 {% extends 'MysnInterfaceBundle::layout.html.twig' %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#moreact").click(function(){
+            $("#moreact").hide();
+            $(".loader").fadeIn('fast');
+
+            /*var user_id = $("#user_id").val();
+            var lignede = $("#lignede").val();
+            var lignenb = $("#lignenb").val();*/
+            var actu = "";
+            $.ajax({
+                type:"POST",
+                url:"{{ path('MysnInterfaceBundle_ajax_more_actu') }}",
+                //data:"user_id"+user_id+"&lignede="+lignede+"&lignenb="+lignenb,
+                cache:"false",
+                success:function(data){
+                    var obj = eval ("(" + data + ")");
+					actu = "<div class='bloc' style='display: none;'>"
+                    for (var i in obj)
+                    {
+                        actu += "<div class='articles'>";
+                        actu += "<p>"+obj[i].CONTENT+"</p>";
+                        actu += "<p>"+obj[i].DATEPUB.date+"</p>";
+                        actu += "</div>";
+                    }
+					actu += "</div>";
+                    $(".loader").fadeOut('normal', function(){
+                        $("#actualite").append(actu);
+                        $(".bloc:last").fadeIn("fast", function(){
+							$("#moreact").show();
+						});
+                    });
+                }
+                //error:function(
+            });
+            return false;
+        });
+
+
+    });
+</script>
+{% endblock %}
+
 {% block body %}
 
+{% endblock %}
+
+{% block actualite %}
+    <div id="actualite">
+		<div class="bloc">
+        	{% for entity in entities %}
+	        <div class='aarticle'>
+	            <p>{{ entity.CONTENT }}</p>
+	            <p>{{ entity.DATEPUB|date('d-m-Y') }}</p>
+	        </div>
+	        {% endfor %}
+		</div>
+    </div>
+        <center>
+            <div class="loader" style="display: none;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </center>
+        <center><a href="{{ path('MysnInterfaceBundle_ajax_more_actu')}}" class='more_btn' id='moreact' style='margin-top: 20px;'>Plus d'actualit&eacute;</a></center>
+{% endblock %}
+
+{% block add_article %}
+    <div class="controls">
+        <form method="POST" id="formarticle" {{ form_enctype(form) }} action="{{ path('MysnInterfaceBundle_article_add') }}" >
+			<p>{{ form_label(form.CONTENT, "Publier un article") }}</p>
+			<p>{{ form_widget(form.CONTENT) }}</p>
+			{{ form_rest(form) }}
+	    	<p><button type="submit">Publier</button></p>
+		</form>
+    </div>
 {% endblock %}

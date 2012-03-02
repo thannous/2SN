@@ -1,0 +1,30 @@
+users:
+    pattern:  /
+    defaults: { _controller: "MysnInterfaceBundle:USERS:index" }
+
+users_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MysnInterfaceBundle:USERS:show" }
+
+users_new:
+    pattern:  /new
+    defaults: { _controller: "MysnInterfaceBundle:USERS:new" }
+
+users_create:
+    pattern:  /create
+    defaults: { _controller: "MysnInterfaceBundle:USERS:create" }
+    requirements: { _method: post }
+
+users_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MysnInterfaceBundle:USERS:edit" }
+
+users_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MysnInterfaceBundle:USERS:update" }
+    requirements: { _method: post }
+
+users_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MysnInterfaceBundle:USERS:delete" }
+    requirements: { _method: post }
